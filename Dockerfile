@@ -1,3 +1,3 @@
-FROM node:latest
+FROM node
 
-RUN npm i axios
+RUN npm install
