@@ -1,10 +1,16 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
-        }
-    }
+   agent { 
+       docker {
+           image 'node:latest'
+       }
+   }
+   stages {
+      stage('Install Dependencies') {
+         steps {
+            sh 'npm -v'
+            sh 'ls -lart'
+            sh 'npm install axios'
+         }
+      }
+   }
 }
