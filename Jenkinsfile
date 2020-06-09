@@ -1,17 +1,11 @@
 pipeline {
-   agent { 
-       docker {
-           image 'node:latest'
-       }
-   }
+   agent { dockerfile true } 
+   
    stages {
       stage('Install Dependencies') {
          steps {
-            sh 'npm -v'
-            sh 'chown -R 1962192188:58041779 "/.npm"'
-            sh 'whoami'
+            sh 'npm -v' 
             sh 'ls -lart'
-            sh 'npm install axios'
          }
       }
    }
